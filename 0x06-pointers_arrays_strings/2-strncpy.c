@@ -1,21 +1,32 @@
 #include "main.h"
+
+
+
 /**
- * _strncpy - function that concatenates two strings.
- * @dest: destination string pointer
- * @src: source string pointer
- * @n: number of bytes to be concatenated
- * Return: pointer to destination string
+ * _strncpy - Copies at most an inputted number
+ * of bytes from string src into dest.
+ * @dest: The buffer storing the string copy.
+ * @src: The source string.
+ * @n: The maximum number of bytes to copied from src.
+ * Return: A pointer to the resulting string dest.
+ *
  */
 
 char *_strncpy(char *dest, char *src, int n)
+
 {
-int count_of_bytes;
 
-for (count_of_bytes = 0; count_of_bytes < n && src[count_of_bytes] != '\0'; count_of_bytes++)
-dest[count_of_bytes] = src[count_of_bytes];
+	int index = 0, src_len = 0;
 
-for (; count_of_bytes < n; count_of_bytes++)
-dest[count_of_bytes] = '\0';
+	while (src[index++])
+	src_len++;
 
-return (dest);
+	for (index = 0; src[index] && index < n; index++)
+	dest[index] = src[index];
+
+	for (index = src_len; index < n; index++)
+	dest[index] = '\0';
+
+	return (dest);
+
 }
