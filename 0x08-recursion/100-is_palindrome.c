@@ -9,6 +9,7 @@ int new_recursion(char *s);
  *
  * Return: it returns 1 if it is, 0 if not
  */
+
 int is_palindrome(char *s)
 {
 	if (*s == 0)
@@ -43,5 +44,5 @@ int confirm(char *s, int r, int dent)
 		return (0);
 	if (r >= dent)
 		return (1);
-	return (check_pal(s, r + 1, dent - 1));
+	return (confirm(s, r + 1, dent - 1));
 }
