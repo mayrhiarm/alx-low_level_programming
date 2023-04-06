@@ -1,8 +1,6 @@
 #include "main.h"
-#include <stdio.h>
 
-int real_prime(int n, int p);
-
+int real_prime(int n, int r);
 /**
  * is_prime_number - it shows if an integer is a prime number
  * @n: the number to evaluate
@@ -13,6 +11,7 @@ int is_prime_number(int n)
 	if (n <= 1)
 		return (0);
 	return (real_prime(n, n - 1));
+}
 
 /**
  * real_prime - confirm a prime number
