@@ -7,11 +7,13 @@
  *
  * Return: 0
  */
+
 int main(int argc, char *argv[])
 {
-	int i;
+	int a;
 
-	for (i = 0; i < argc; i++)
-		printf("%s\n", argv[i]);
+	for (a = 0; a < argc; a++)
+		printf("%s\n", argv[a]);
 
 	return (0);
+}
