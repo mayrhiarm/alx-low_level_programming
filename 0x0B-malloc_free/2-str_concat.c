@@ -6,11 +6,11 @@
  * @s1: first string input
  * @s2: second string input
  *
- * Return: the concatenation of s1 and s2
+ * Return: the concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *conct;
+	char *concat;
 	int s, i;
 
 	if (s1 == NULL)
@@ -23,7 +23,7 @@ char *str_concat(char *s1, char *s2)
 		s++;
 	while (s2[i] != '\0')
 		i++;
-	conct = malloc(sizeof(char) * (s + i + 1));
+	concat = malloc(sizeof(char) * (s + i + 1));
 
 	if (concat == NULL)
 		return (NULL);
