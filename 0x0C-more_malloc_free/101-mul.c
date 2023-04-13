@@ -51,7 +51,6 @@ void errors(void)
 int main(int argc, char *argv[])
 {
 	char *s1, *s2;
-
 	int len_1, len_2, the_len, b, work, num1, num2, *prod, v = 0;
 
 	s1 = argv[1], s2 = argv[2];
