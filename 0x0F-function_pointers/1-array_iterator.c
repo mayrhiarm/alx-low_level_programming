@@ -3,19 +3,20 @@
 
 /**
  * array_iterator - a function that executes a function given
- * array: array
+ * @array: array
  * @size: the size of the array
  * @action: a pointer to the function you need to use
  * Return: nothing
  */
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	size_t a;
+	unsigned int b;
 
-	if (array && action)
+	if (array == NULL || action == NULL)
+		return;
 
-	for (a = 0; a < size; a++)
+	for (b = 0; b < size; b++)
 	{
-		action(array[a]);
+		action(array[b]);
 	}
 }
