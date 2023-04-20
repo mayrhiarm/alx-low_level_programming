@@ -63,35 +63,43 @@ int print_s(va_list a)
  */
 void print_all(const char * const format, ...)
 {
-	int p, q;
-	char *sep1 = "";
-	char *sep2 = ", ";
-	va_list listArgs;
-	printer ops[] = {
-		{"c", print_c},
-		{"i", print_i},
-		{"s", print_s},
-		{"f", print_f},
-		{NULL, NULL}
-	};
+	int f = 0;
+	char *str, *sep = "";
 
-	va_start(listArgs, format);
-	p = 0;
-	while (format != NULL && format[p])
+	va_list listArg;
+
+	va_start(listArg, format);
+
+	if (format)
 	{
-		q = 0;
-		while (ops[q].f != NULL)
+		while (format[f])
 		{
-			if (format[p] == *(ops[q].c))
+			switch (format[f])
 			{
-				printf("%s", sep1);
-				ops[q].f(listArgs);
+				case 'c':
+					printf("%s%c", sep, va_arg(listArg, int));
+					break;
+				case 'i':
+					printf("%s%d", sep, va_arg(listArg, int));
+					break;
+				case 'f':
+					printf("%s%f", sep, va_arg(listArg, double));
+					break;
+				case 's':
+					str = va_arg(listArg, char *);
+					if (!str)
+						str = "(nil)";
+					printf("%s%s", sep, str);
+					break;
+				default:
+					f++;
+					continue;
 			}
-			q++;
+			sep = ", ";
+			f++;
 		}
-		sep1 = sep2;
-		p++;
 	}
+
 	printf("\n");
-	va_end(listArgs);
+	va_end(listArg);
 }
