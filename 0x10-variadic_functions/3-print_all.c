@@ -66,9 +66,9 @@ void print_all(const char * const format, ...)
 	int f = 0;
 	char *str, *sep = "";
 
-	va_list listArg;
+	va_list list;
 
-	va_start(listArg, format);
+	va_start(list, format);
 
 	if (format)
 	{
@@ -77,16 +77,16 @@ void print_all(const char * const format, ...)
 			switch (format[f])
 			{
 				case 'c':
-					printf("%s%c", sep, va_arg(listArg, int));
+					printf("%s%c", sep, va_arg(list, int));
 					break;
 				case 'i':
-					printf("%s%d", sep, va_arg(listArg, int));
+					printf("%s%d", sep, va_arg(list, int));
 					break;
 				case 'f':
-					printf("%s%f", sep, va_arg(listArg, double));
+					printf("%s%f", sep, va_arg(list, double));
 					break;
 				case 's':
-					str = va_arg(listArg, char *);
+					str = va_arg(list, char *);
 					if (!str)
 						str = "(nil)";
 					printf("%s%s", sep, str);
@@ -101,5 +101,5 @@ void print_all(const char * const format, ...)
 	}
 
 	printf("\n");
-	va_end(listArg);
+	va_end(list);
 }
