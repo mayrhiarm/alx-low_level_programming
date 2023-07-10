@@ -7,7 +7,7 @@ void close_file(int fd);
 
 /**
  * create_buffer - A function that allocates 1024 bytes for a buffer.
- * @file: the name of the file buffer
+ * @file: the name of the file
  * Return: A pointer to the newly-allocated buffer.
  */
 char *create_buffer(char *file)
@@ -27,16 +27,16 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - A function that closes file descriptors.
+ * close_file - a function closes file descriptors.
  * @fd: The file descriptor to be closed.
  */
 void close_file(int fd)
+{
+	int c;
 
-	int e;
+	c = close(fd);
 
-	e = close(fd);
-
-	if (e == -1)
+	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 		exit(100);
